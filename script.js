@@ -243,7 +243,7 @@ function initCategoryPage(slug) {
           </div>
           <div class="mt-auto pt-4 flex items-center justify-between border-t border-slate-100">
             <span class="font-bold text-brand">${formatPrice(c.price)}</span>
-            <button class="text-sm font-semibold text-brand hover:text-gold-dark transition">Detail →</button>
+            <a href="course-detail.html" class="text-sm font-semibold text-brand hover:text-gold-dark transition">Detail →</a>
           </div>
         </div>
       </article>
