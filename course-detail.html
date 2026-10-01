@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detail Kursus — UNMAS Learning Center</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: { DEFAULT:"#0B6B3A", dark:"#084F2B", light:"#E8F5EE" },
+            gold:  { DEFAULT:"#C9A227", dark:"#A8841B", light:"#F5E6B8" },
+            ink:   { DEFAULT:"#1A1A1A", muted:"#4B5563" },
+          },
+          fontFamily: { sans:["Inter","system-ui","sans-serif"] },
+        },
+      },
+    };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body class="font-sans text-ink bg-white">
+
+  <div class="h-1 bg-gradient-to-r from-brand via-gold to-brand"></div>
+
+  <!-- TOPBAR -->
+  <div id="topbar" class="bg-brand-dark text-white text-xs overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 h-9 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-4 min-w-0">
+        <a href="tel:+62361227019" class="flex items-center gap-1.5 hover:text-gold transition">
+          <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          (0361) 227019
+        </a>
+        <span class="hidden md:inline text-white/30">|</span>
+        <a href="mailto:info@unmas.ac.id" class="hidden md:flex items-center gap-1.5 hover:text-gold transition">
+          <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><path stroke-linecap="round" stroke-linejoin="round" d="m22 6-10 7L2 6"/></svg>
+          info@unmas.ac.id
+        </a>
+      </div>
+      <div class="flex items-center gap-2">
+        <div id="langSwitch" class="flex items-center gap-1 mr-2 pr-3 border-r border-white/20">
+          <button data-lang="id" class="lang-btn px-1.5 py-0.5 rounded font-semibold transition">ID</button>
+          <span class="text-white/30">|</span>
+          <button data-lang="en" class="lang-btn px-1.5 py-0.5 rounded font-semibold transition">EN</button>
+        </div>
+        <div class="flex items-center gap-1">
+          <a href="#" aria-label="TikTok" class="p-1.5 hover:text-gold transition"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+          <a href="#" aria-label="Instagram" class="p-1.5 hover:text-gold transition"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
+          <a href="#" aria-label="Facebook" class="p-1.5 hover:text-gold transition"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a href="#" aria-label="Twitter / X" class="p-1.5 hover:text-gold transition"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="#" aria-label="YouTube" class="p-1.5 hover:text-gold transition"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-200">
+    <nav class="max-w-7xl mx-auto flex items-center gap-4 px-4 h-16">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="assets/unmas-logo.png" alt="Logo UNMAS" class="h-10 w-10 object-contain" />
+        <div class="leading-tight">
+          <div class="text-base font-extrabold text-brand">Universitas Mahasaraswati</div>
+          <div class="text-[10px] uppercase tracking-widest text-gold-dark font-semibold">Learning Center</div>
+        </div>
+      </a>
+
+      <button id="menuBtn" class="md:hidden ml-auto p-2" aria-label="Menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+
+      <ul class="hidden md:flex items-center gap-6 text-sm font-medium ml-8">
+        <li><a href="index.html" class="hover:text-brand">Beranda</a></li>
+        <li><a href="short-course.html" class="hover:text-brand">Short Course</a></li>
+        <li><a href="microteaching.html" class="hover:text-brand">Microteaching</a></li>
+        <li><a href="bnsp.html" class="hover:text-brand">Sertifikasi BNSP</a></li>
+      </ul>
+
+      <div class="hidden md:flex items-center gap-3 ml-auto">
+        <a href="login.html" class="text-sm font-medium hover:text-brand">Masuk</a>
+        <a href="register.html" class="bg-brand text-white text-sm font-semibold px-4 py-2 rounded-lg hover:bg-brand-dark transition">Daftar</a>
+      </div>
+    </nav>
+
+    <div id="mobileMenu" class="hidden md:hidden border-t border-slate-200 px-4 py-3 space-y-2">
+      <a href="index.html" class="block py-2 font-medium">Beranda</a>
+      <a href="short-course.html" class="block py-2 font-medium">Short Course</a>
+      <a href="microteaching.html" class="block py-2 font-medium">Microteaching</a>
+      <a href="bnsp.html" class="block py-2 font-medium">Sertifikasi BNSP</a>
+      <div class="pt-2 flex gap-3">
+        <a href="login.html" class="flex-1 text-center border rounded-lg py-2 text-sm font-medium">Masuk</a>
+        <a href="register.html" class="flex-1 text-center bg-brand text-white rounded-lg py-2 text-sm font-semibold">Daftar</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="bg-ink text-white">
+    <div class="max-w-7xl mx-auto px-4 py-10 md:py-14 grid lg:grid-cols-3 gap-8">
+
+      <!-- Left: title/info -->
+      <div class="lg:col-span-2">
+        <nav class="text-xs text-white/50 mb-4">
+          <a href="index.html" class="hover:text-gold">Beranda</a>
+          <span class="mx-2">/</span>
+          <a href="short-course.html" class="hover:text-gold">Short Course</a>
+          <span class="mx-2">/</span>
+          <span class="text-white font-medium">Detail Kursus</span>
+        </nav>
+
+        <span class="inline-block text-[10px] font-bold tracking-widest uppercase bg-gold text-ink px-3 py-1 rounded-full">
+          Short Course
+        </span>
+
+        <h1 class="mt-4 text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight">
+          UI/UX Fundamental dalam 7 Hari
+        </h1>
+
+        <p class="mt-4 text-white/70 md:text-lg max-w-2xl">
+          Pelajari dasar-dasar UI/UX dari nol — riset pengguna, wireframe, prototyping,
+          dan usability testing. Selesai dalam 7 hari dengan proyek portofolio nyata.
+        </p>
+
+        <!-- Meta row -->
+        <div class="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
+          <span class="flex items-center gap-1.5 text-gold font-bold">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.09 4.26 4.71.68-3.4 3.31.8 4.7L12 12.77 7.8 14.95l.8-4.7-3.4-3.31 4.71-.68L12 2z"/></svg>
+            4.7
+          </span>
+          <span class="text-white/60">(1.248 rating)</span>
+          <span class="text-white/30">•</span>
+          <span class="text-white/70">3.214 peserta</span>
+          <span class="text-white/30">•</span>
+          <span class="text-white/70">Bahasa: Indonesia</span>
+        </div>
+
+        <div class="mt-6 flex items-center gap-3">
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80"
+               alt="Andi Pratama" class="w-10 h-10 rounded-full object-cover ring-2 ring-gold/40" />
+          <div class="leading-tight text-sm">
+            <div class="text-white/60">Instruktur</div>
+            <div class="font-semibold">Andi Pratama, M.Ds.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: nothing on desktop (pricing card overlaps below) -->
+    </div>
+  </section>
+
+  <!-- ============ MAIN ============ -->
+  <section class="max-w-7xl mx-auto px-4 py-10 md:py-14">
+    <div class="grid lg:grid-cols-3 gap-10">
+
+      <!-- LEFT: content -->
+      <div class="lg:col-span-2 space-y-12">
+
+        <!-- What you'll learn -->
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 md:p-8">
+          <h2 class="text-xl md:text-2xl font-bold">Yang akan kamu pelajari</h2>
+          <div class="mt-5 grid sm:grid-cols-2 gap-4 text-sm">
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-brand shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-ink-muted">Prinsip dasar UI/UX & design thinking</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-brand shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-ink-muted">User research & persona development</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-brand shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-ink-muted">Wireframing & information architecture</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-brand shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-ink-muted">Prototyping dengan Figma</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-brand shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-ink-muted">Usability testing & iterasi desain</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-brand shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-ink-muted">Menyusun portofolio UI/UX pertama</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Curriculum -->
+        <div>
+          <div class="flex flex-wrap items-end justify-between gap-3 mb-5">
+            <div>
+              <div class="w-12 h-1 bg-gold mb-3 rounded-full"></div>
+              <h2 class="text-xl md:text-2xl font-bold">Kurikulum</h2>
+            </div>
+            <div class="text-xs text-ink-muted">6 modul • 42 pelajaran • 6 jam total</div>
+          </div>
+
+          <div id="curriculum" class="border border-slate-200 rounded-2xl overflow-hidden divide-y divide-slate-200">
+            <!-- Modul 1 -->
+            <details class="curriculum-item group" open>
+              <summary class="flex items-center gap-3 px-5 py-4 cursor-pointer hover:bg-brand-light/50 transition">
+                <svg class="chev w-4 h-4 text-ink-muted transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                <span class="font-semibold text-sm flex-1">Modul 1 — Pengenalan UI/UX</span>
+                <span class="text-xs text-ink-muted">5 pelajaran • 45 menit</span>
+              </summary>
+              <ul class="px-5 pb-4 space-y-2 text-sm text-ink-muted">
+                <li class="flex items-center gap-3 pl-7 py-1.5"><svg class="w-4 h-4 text-brand" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0 0 10 9.87v4.263a1 1 0 0 0 1.555.832l3.197-2.132a1 1 0 0 0 0-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg> Apa itu UI & UX?</li>
+                <li class="flex items-center gap-3 pl-7 py-1.5"><svg class="w-4 h-4 text-brand" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0 0 10 9.87v4.263a1 1 0 0 0 1.555.832l3.197-2.132a1 1 0 0 0 0-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg> Peran UI/UX Designer di industri</li>
+                <li class="flex items-center gap-3 pl-7 py-1.5"><svg class="w-4 h-4 text-brand" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0 0 10 9.87v4.263a1 1 0 0 0 1.555.832l3.197-2.132a1 1 0 0 0 0-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg> Design thinking framework</li>
+                <li class="flex items-center gap-3 pl-7 py-1.5"><svg class="w-4 h-4 text-brand" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0 0 10 9.87v4.263a1 1 0 0 0 1.555.832l3.197-2.132a1 1 0 0 0 0-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg> Tools yang akan dipakai</li>
+                <li class="flex items-center gap-3 pl-7 py-1.5"><svg class="w-4 h-4 text-brand" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z"/></svg> Kuis: cek pemahaman awal</li>
+              </ul>
+            </details>
+
+            <!-- Modul 2 -->
+            <details class="curriculum-item group">
+              <summary class="flex items-center gap-3 px-5 py-4 cursor-pointer hover:bg-brand-light/50 transition">
+                <svg class="chev w-4 h-4 text-ink-muted transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                <span class="font-semibold text-sm flex-1">Modul 2 — User Research & Persona</span>
+                <span class="text-xs text-ink-muted">7 pelajaran • 1 jam 10 menit</span>
+              </summary>
+              <ul class="px-5 pb-4 space-y-2 text-sm text-ink-muted">
+                <li class="flex items-center gap-3 pl-7 py-1.5"><svg class="w-4 h-4 text-brand" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0 0 10 9.87v4.263a1 1 0 0 0 1.555.832l3.197-2.132a1 1 0 0 0 0-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg> Metode riset kualitatif & kuantitatif</li>
+                <li class="flex items-center gap-3 pl-7 py-1.5"><svg class="w-4 h-4 text-brand" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0 0 10 9.87v4.263a1 1 0 0 0 1.555.832l3.197-2.132a1 1 0 0 0 0-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg> Membuat user persona</li>
+                <li class="flex items-center gap-3 pl-7 py-1.5"><svg class="w-4 h-4 text-brand" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0 0 10 9.87v4.263a1 1 0 0 0 1.555.832l3.197-2.132a1 1 0 0 0 0-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg> User journey mapping</li>
+                <li class="flex items-center gap-3 pl-7 py-1.5"><svg class="w-4 h-4 text-brand" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z"/></svg> Latihan: wawancara pengguna</li>
+              </ul>
+            </details>
+
+            <!-- Modul 3 -->
+            <details class="curriculum-item group">
+              <summary class="flex items-center gap-3 px-5 py-4 cursor-pointer hover:bg-brand-light/50 transition">
+                <svg class="chev w-4 h-4 text-ink-muted transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                <span class="font-semibold text-sm flex-1">Modul 3 — Wireframing & IA</span>
+                <span class="text-xs text-ink-muted">8 pelajaran • 1 jam 20 menit</span>
+              </summary>
+              <ul class="px-5 pb-4 space-y-2 text-sm text-ink-muted">
+                <li class="flex items-center gap-3 pl-7 py-1.5"><svg class="w-4 h-4 text-brand" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0 0 10 9.87v4.263a1 1 0 0 0 1.555.832l3.197-2.132a1 1 0 0 0 0-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg> Prinsip layout & grid system</li>
+                <li class="flex items-center gap-3 pl-7 py-1.5"><svg class="w-4 h-4 text-brand" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0 0 10 9.87v4.263a1 1 0 0 0 1.555.832l3.197-2.132a1 1 0 0 0 0-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg> Low-fidelity vs high-fidelity</li>
+                <li class="flex items-center gap-3 pl-7 py-1.5"><svg class="w-4 h-4 text-brand" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z"/></svg> Latihan: wireframe 3 layar</li>
+              </ul>
+            </details>
+
+            <!-- Modul 4 -->
+            <details class="curriculum-item group">
+              <summary class="flex items-center gap-3 px-5 py-4 cursor-pointer hover:bg-brand-light/50 transition">
+                <svg class="chev w-4 h-4 text-ink-muted transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                <span class="font-semibold text-sm flex-1">Modul 4 — Prototyping di Figma</span>
+                <span class="text-xs text-ink-muted">9 pelajaran • 1 jam 30 menit</span>
+              </summary>
+              <ul class="px-5 pb-4 space-y-2 text-sm text-ink-muted">
+                <li class="flex items-center gap-3 pl-7 py-1.5"><svg class="w-4 h-4 text-brand" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0 0 10 9.87v4.263a1 1 0 0 0 1.555.832l3.197-2.132a1 1 0 0 0 0-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg> Setup Figma & komponen dasar</li>
+                <li class="flex items-center gap-3 pl-7 py-1.5"><svg class="w-4 h-4 text-brand" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0 0 10 9.87v4.263a1 1 0 0 0 1.555.832l3.197-2.132a1 1 0 0 0 0-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg> Auto-layout & variants</li>
+                <li class="flex items-center gap-3 pl-7 py-1.5"><svg class="w-4 h-4 text-brand" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0 0 10 9.87v4.263a1 1 0 0 0 1.555.832l3.197-2.132a1 1 0 0 0 0-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg> Interactive prototyping</li>
+              </ul>
+            </details>
+
+            <!-- Modul 5 -->
+            <details class="curriculum-item group">
+              <summary class="flex items-center gap-3 px-5 py-4 cursor-pointer hover:bg-brand-light/50 transition">
+                <svg class="chev w-4 h-4 text-ink-muted transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                <span class="font-semibold text-sm flex-1">Modul 5 — Usability Testing</span>
+                <span class="text-xs text-ink-muted">7 pelajaran • 1 jam</span>
+              </summary>
+              <ul class="px-5 pb-4 space-y-2 text-sm text-ink-muted">
+                <li class="flex items-center gap-3 pl-7 py-1.5"><svg class="w-4 h-4 text-brand" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0 0 10 9.87v4.263a1 1 0 0 0 1.555.832l3.197-2.132a1 1 0 0 0 0-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg> Merancang skenario pengujian</li>
+                <li class="flex items-center gap-3 pl-7 py-1.5"><svg class="w-4 h-4 text-brand" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0 0 10 9.87v4.263a1 1 0 0 0 1.555.832l3.197-2.132a1 1 0 0 0 0-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg> Analisis & iterasi hasil</li>
+              </ul>
+            </details>
+
+            <!-- Modul 6 -->
+            <details class="curriculum-item group">
+              <summary class="flex items-center gap-3 px-5 py-4 cursor-pointer hover:bg-brand-light/50 transition">
+                <svg class="chev w-4 h-4 text-ink-muted transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                <span class="font-semibold text-sm flex-1">Modul 6 — Proyek Akhir & Portofolio</span>
+                <span class="text-xs text-ink-muted">6 pelajaran • 1 jam 15 menit</span>
+              </summary>
+              <ul class="px-5 pb-4 space-y-2 text-sm text-ink-muted">
+                <li class="flex items-center gap-3 pl-7 py-1.5"><svg class="w-4 h-4 text-brand" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0 0 10 9.87v4.263a1 1 0 0 0 1.555.832l3.197-2.132a1 1 0 0 0 0-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg> Mengerjakan proyek end-to-end</li>
+                <li class="flex items-center gap-3 pl-7 py-1.5"><svg class="w-4 h-4 text-brand" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z"/></svg> Menyusun portofolio & sertifikat</li>
+              </ul>
+            </details>
+          </div>
+        </div>
+
+        <!-- Instructor -->
+        <div>
+          <div class="w-12 h-1 bg-gold mb-3 rounded-full"></div>
+          <h2 class="text-xl md:text-2xl font-bold mb-5">Instruktur</h2>
+
+          <div class="bg-white border border-slate-200 rounded-2xl p-6">
+            <div class="flex items-start gap-4">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80"
+                   alt="Andi Pratama" class="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover ring-4 ring-gold/30 shrink-0" />
+              <div>
+                <h3 class="font-bold text-lg">Andi Pratama, M.Ds.</h3>
+                <p class="text-sm text-ink-muted mt-0.5">Senior Product Designer · 8 tahun pengalaman</p>
+
+                <div class="mt-3 flex flex-wrap gap-3 text-xs">
+                  <span class="flex items-center gap-1.5 text-ink-muted">
+                    <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.09 4.26 4.71.68-3.4 3.31.8 4.7L12 12.77 7.8 14.95l.8-4.7-3.4-3.31 4.71-.68L12 2z"/></svg>
+                    4.7 rating
+                  </span>
+                  <span class="text-ink-muted">•</span>
+                  <span class="text-ink-muted">3 kursus</span>
+                  <span class="text-ink-muted">•</span>
+                  <span class="text-ink-muted">5.412 peserta</span>
+                </div>
+
+                <p class="mt-4 text-sm text-ink-muted leading-relaxed">
+                  Andi telah mendampingi puluhan tim produk di Indonesia dan Asia Tenggara
+                  dalam merancang pengalaman digital. Kini aktif mengajar UI/UX dan
+                  membina komunitas desainer muda di Bali.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Reviews -->
+        <div>
+          <div class="w-12 h-1 bg-gold mb-3 rounded-full"></div>
+          <h2 class="text-xl md:text-2xl font-bold mb-5">Ulasan Peserta</h2>
+
+          <div class="bg-white border border-slate-200 rounded-2xl p-6 md:p-8">
+            <!-- Rating summary -->
+            <div class="flex flex-col md:flex-row items-center gap-6 md:gap-10 pb-6 border-b border-slate-200">
+              <div class="text-center md:text-left">
+                <div class="text-5xl font-extrabold text-brand">4.7</div>
+                <div class="flex items-center justify-center md:justify-start gap-1 mt-1 text-gold">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.09 4.26 4.71.68-3.4 3.31.8 4.7L12 12.77 7.8 14.95l.8-4.7-3.4-3.31 4.71-.68L12 2z"/></svg>
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.09 4.26 4.71.68-3.4 3.31.8 4.7L12 12.77 7.8 14.95l.8-4.7-3.4-3.31 4.71-.68L12 2z"/></svg>
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.09 4.26 4.71.68-3.4 3.31.8 4.7L12 12.77 7.8 14.95l.8-4.7-3.4-3.31 4.71-.68L12 2z"/></svg>
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.09 4.26 4.71.68-3.4 3.31.8 4.7L12 12.77 7.8 14.95l.8-4.7-3.4-3.31 4.71-.68L12 2z"/></svg>
+                  <svg class="w-4 h-4 text-gold/40" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.09 4.26 4.71.68-3.4 3.31.8 4.7L12 12.77 7.8 14.95l.8-4.7-3.4-3.31 4.71-.68L12 2z"/></svg>
+                </div>
+                <div class="text-xs text-ink-muted mt-1">1.248 ulasan</div>
+              </div>
+
+              <div class="flex-1 w-full space-y-2">
+                <div class="flex items-center gap-3 text-xs">
+                  <span class="w-8">5 ★</span>
+                  <div class="flex-1 h-2 bg-slate-200 rounded-full overflow-hidden"><div class="h-full bg-gold" style="width:72%"></div></div>
+                  <span class="w-10 text-right text-ink-muted">72%</span>
+                </div>
+                <div class="flex items-center gap-3 text-xs">
+                  <span class="w-8">4 ★</span>
+                  <div class="flex-1 h-2 bg-slate-200 rounded-full overflow-hidden"><div class="h-full bg-gold" style="width:20%"></div></div>
+                  <span class="w-10 text-right text-ink-muted">20%</span>
+                </div>
+                <div class="flex items-center gap-3 text-xs">
+                  <span class="w-8">3 ★</span>
+                  <div class="flex-1 h-2 bg-slate-200 rounded-full overflow-hidden"><div class="h-full bg-gold" style="width:5%"></div></div>
+                  <span class="w-10 text-right text-ink-muted">5%</span>
+                </div>
+                <div class="flex items-center gap-3 text-xs">
+                  <span class="w-8">2 ★</span>
+                  <div class="flex-1 h-2 bg-slate-200 rounded-full overflow-hidden"><div class="h-full bg-gold" style="width:2%"></div></div>
+                  <span class="w-10 text-right text-ink-muted">2%</span>
+                </div>
+                <div class="flex items-center gap-3 text-xs">
+                  <span class="w-8">1 ★</span>
+                  <div class="flex-1 h-2 bg-slate-200 rounded-full overflow-hidden"><div class="h-full bg-gold" style="width:1%"></div></div>
+                  <span class="w-10 text-right text-ink-muted">1%</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Review cards -->
+            <div class="mt-6 space-y-6">
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 rounded-full bg-brand text-white flex items-center justify-center font-bold text-sm shrink-0">RK</div>
+                <div>
+                  <div class="flex items-center gap-2">
+                    <span class="font-semibold text-sm">Rina Kartika</span>
+                    <span class="text-xs text-ink-muted">· 2 minggu lalu</span>
+                  </div>
+                  <div class="flex gap-0.5 mt-1 text-gold">
+                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.09 4.26 4.71.68-3.4 3.31.8 4.7L12 12.77 7.8 14.95l.8-4.7-3.4-3.31 4.71-.68L12 2z"/></svg>
+                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.09 4.26 4.71.68-3.4 3.31.8 4.7L12 12.77 7.8 14.95l.8-4.7-3.4-3.31 4.71-.68L12 2z"/></svg>
+                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.09 4.26 4.71.68-3.4 3.31.8 4.7L12 12.77 7.8 14.95l.8-4.7-3.4-3.31 4.71-.68L12 2z"/></svg>
+                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.09 4.26 4.71.68-3.4 3.31.8 4.7L12 12.77 7.8 14.95l.8-4.7-3.4-3.31 4.71-.68L12 2z"/></svg>
+                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.09 4.26 4.71.68-3.4 3.31.8 4.7L12 12.77 7.8 14.95l.8-4.7-3.4-3.31 4.71-.68L12 2z"/></svg>
+                  </div>
+                  <p class="mt-2 text-sm text-ink-muted leading-relaxed">
+                    Materinya runtut dan mudah dipahami. Bagian usability testing paling
+                    membantu saya waktu kerja di startup.
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 rounded-full bg-gold text-ink flex items-center justify-center font-bold text-sm shrink-0">BS</div>
+                <div>
+                  <div class="flex items-center gap-2">
+                    <span class="font-semibold text-sm">Budi Santoso</span>
+                    <span class="text-xs text-ink-muted">· 1 bulan lalu</span>
+                  </div>
+                  <div class="flex gap-0.5 mt-1 text-gold">
+                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.09 4.26 4.71.68-3.4 3.31.8 4.7L12 12.77 7.8 14.95l.8-4.7-3.4-3.31 4.71-.68L12 2z"/></svg>
+                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.09 4.26 4.71.68-3.4 3.31.8 4.7L12 12.77 7.8 14.95l.8-4.7-3.4-3.31 4.71-.68L12 2z"/></svg>
+                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.09 4.26 4.71.68-3.4 3.31.8 4.7L12 12.77 7.8 14.95l.8-4.7-3.4-3.31 4.71-.68L12 2z"/></svg>
+                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.09 4.26 4.71.68-3.4 3.31.8 4.7L12 12.77 7.8 14.95l.8-4.7-3.4-3.31 4.71-.68L12 2z"/></svg>
+                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.09 4.26 4.71.68-3.4 3.31.8 4.7L12 12.77 7.8 14.95l.8-4.7-3.4-3.31 4.71-.68L12 2z"/></svg>
+                  </div>
+                  <p class="mt-2 text-sm text-ink-muted leading-relaxed">
+                    Proyek akhirnya bener-bener bikin portofolio saya naik level. Recommended
+                    untuk pemula yang serius.
+                  </p>
+                </div>
+              </div>
+
+              <button class="w-full border border-slate-300 rounded-lg py-3 text-sm font-semibold hover:border-brand hover:text-brand transition">
+                Lihat semua ulasan
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ -->
+        <div>
+          <div class="w-12 h-1 bg-gold mb-3 rounded-full"></div>
+          <h2 class="text-xl md:text-2xl font-bold mb-5">Pertanyaan Umum</h2>
+
+          <div class="border border-slate-200 rounded-2xl overflow-hidden divide-y divide-slate-200">
+            <details class="group">
+              <summary class="flex items-center gap-3 px-5 py-4 cursor-pointer hover:bg-brand-light/50 transition">
+                <svg class="chev w-4 h-4 text-ink-muted transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                <span class="font-semibold text-sm flex-1">Apakah ada syarat khusus untuk mengikuti kursus?</span>
+              </summary>
+              <p class="px-5 pb-4 pl-12 text-sm text-ink-muted">
+                Tidak ada. Kursus ini dirancang untuk pemula tanpa latar belakang desain.
+                Cukup punya laptop dan koneksi internet.
+              </p>
+            </details>
+            <details class="group">
+              <summary class="flex items-center gap-3 px-5 py-4 cursor-pointer hover:bg-brand-light/50 transition">
+                <svg class="chev w-4 h-4 text-ink-muted transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                <span class="font-semibold text-sm flex-1">Apakah saya mendapatkan sertifikat?</span>
+              </summary>
+              <p class="px-5 pb-4 pl-12 text-sm text-ink-muted">
+                Ya. Setelah menyelesaikan seluruh modul dan proyek akhir, kamu akan menerima
+                sertifikat digital yang bisa diverifikasi dan dibagikan ke LinkedIn.
+              </p>
+            </details>
+            <details class="group">
+              <summary class="flex items-center gap-3 px-5 py-4 cursor-pointer hover:bg-brand-light/50 transition">
+                <svg class="chev w-4 h-4 text-ink-muted transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                <span class="font-semibold text-sm flex-1">Berapa lama saya bisa mengakses materi?</span>
+              </summary>
+              <p class="px-5 pb-4 pl-12 text-sm text-ink-muted">
+                Akses seumur hidup. Kamu juga mendapat update materi gratis jika ada
+                perubahan kurikulum di masa depan.
+              </p>
+            </details>
+            <details class="group">
+              <summary class="flex items-center gap-3 px-5 py-4 cursor-pointer hover:bg-brand-light/50 transition">
+                <svg class="chev w-4 h-4 text-ink-muted transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                <span class="font-semibold text-sm flex-1">Apakah ada sesi live dengan instruktur?</span>
+              </summary>
+              <p class="px-5 pb-4 pl-12 text-sm text-ink-muted">
+                Ada. Setiap batch mendapat 2 sesi live via Zoom untuk tanya-jawab dan review
+                proyek. Jadwal akan diinfokan via email.
+              </p>
+            </details>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT: STICKY SIDEBAR -->
+      <aside class="lg:col-span-1">
+        <div class="lg:sticky lg:top-24">
+          <div class="bg-white border border-slate-200 rounded-2xl shadow-lg overflow-hidden">
+
+            <!-- Preview image -->
+            <div class="relative">
+              <img src="https://images.unsplash.com/photo-1587440871875-191322ee64b0?w=800&q=80"
+                   alt="Preview kursus" class="w-full h-48 object-cover" />
+              <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+                <button class="w-14 h-14 rounded-full bg-white/95 flex items-center justify-center hover:scale-105 transition">
+                  <svg class="w-6 h-6 text-brand ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+              </div>
+              <span class="absolute top-3 left-3 text-[10px] font-bold tracking-widest uppercase bg-gold text-ink px-2.5 py-1 rounded-full">Preview</span>
+            </div>
+
+            <div class="p-6">
+              <!-- Price -->
+              <div class="flex items-end gap-3">
+                <span class="text-3xl font-extrabold text-brand">Rp 249.000</span>
+                <span class="text-sm text-ink-muted line-through">Rp 499.000</span>
+              </div>
+              <span class="inline-block mt-1 text-xs font-bold text-red-600 bg-red-50 border border-red-200 rounded-full px-2.5 py-0.5">
+                Diskon 50% — sisa 3 hari
+              </span>
+
+              <!-- CTA -->
+              <a href="register.html"
+                 class="mt-5 block text-center w-full bg-brand text-white font-bold py-3.5 rounded-lg hover:bg-brand-dark transition shadow-sm">
+                Daftar Sekarang
+              </a>
+
+              <button class="mt-2 w-full border border-slate-300 text-ink font-semibold py-3 rounded-lg hover:border-brand hover:text-brand transition text-sm">
+                Tambah ke Wishlist
+              </button>
+
+              <p class="mt-3 text-center text-xs text-ink-muted">Garansi uang kembali 7 hari</p>
+
+              <!-- Includes -->
+              <div class="mt-6 pt-5 border-t border-slate-200">
+                <h4 class="text-sm font-bold mb-3">Kursus ini mencakup:</h4>
+                <ul class="space-y-2.5 text-sm text-ink-muted">
+                  <li class="flex items-center gap-2.5">
+                    <svg class="w-4 h-4 text-brand shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0 1 21 8.618v6.764a1 1 0 0 1-1.447.894L15 14M5 18h8a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2z"/></svg>
+                    6 jam video on-demand
+                  </li>
+                  <li class="flex items-center gap-2.5">
+                    <svg class="w-4 h-4 text-brand shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z"/></svg>
+                    12 artikel & template
+                  </li>
+                  <li class="flex items-center gap-2.5">
+                    <svg class="w-4 h-4 text-brand shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+                    Akses seumur hidup
+                  </li>
+                  <li class="flex items-center gap-2.5">
+                    <svg class="w-4 h-4 text-brand shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 0 0 1.946-.806 3.42 3.42 0 0 1 4.438 0 3.42 3.42 0 0 0 1.946.806 3.42 3.42 0 0 1 3.138 3.138 3.42 3.42 0 0 0 .806 1.946 3.42 3.42 0 0 1 0 4.438 3.42 3.42 0 0 0-.806 1.946 3.42 3.42 0 0 1-3.138 3.138 3.42 3.42 0 0 0-1.946.806 3.42 3.42 0 0 1-4.438 0 3.42 3.42 0 0 0-1.946-.806 3.42 3.42 0 0 1-3.138-3.138 3.42 3.42 0 0 0-.806-1.946 3.42 3.42 0 0 1 0-4.438 3.42 3.42 0 0 0 .806-1.946 3.42 3.42 0 0 1 3.138-3.138z"/></svg>
+                    Sertifikat digital
+                  </li>
+                  <li class="flex items-center gap-2.5">
+                    <svg class="w-4 h-4 text-brand shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 1 1 0 5.292M15 21H3v-1a6 6 0 0 1 12 0v1zm0 0h6v-1a6 6 0 0 0-9-5.197M13 7a4 4 0 1 1 8 0 4 4 0 0 1-8 0z"/></svg>
+                    Komunitas alumni
+                  </li>
+                  <li class="flex items-center gap-2.5">
+                    <svg class="w-4 h-4 text-brand shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.86 9.86 0 0 1-4-.897L3 20l1.103-3.325A7.865 7.865 0 0 1 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                    Bimbingan via grup diskusi
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Info -->
+              <div class="mt-6 pt-5 border-t border-slate-200 grid grid-cols-2 gap-3 text-xs">
+                <div>
+                  <div class="text-ink-muted">Level</div>
+                  <div class="font-semibold mt-0.5">Pemula</div>
+                </div>
+                <div>
+                  <div class="text-ink-muted">Durasi</div>
+                  <div class="font-semibold mt-0.5">6 jam</div>
+                </div>
+                <div>
+                  <div class="text-ink-muted">Modul</div>
+                  <div class="font-semibold mt-0.5">6 modul</div>
+                </div>
+                <div>
+                  <div class="text-ink-muted">Bahasa</div>
+                  <div class="font-semibold mt-0.5">Indonesia</div>
+                </div>
+              </div>
+
+              <!-- Share -->
+              <div class="mt-6 pt-5 border-t border-slate-200">
+                <div class="text-xs text-ink-muted mb-2">Bagikan kursus ini</div>
+                <div class="flex gap-2">
+                  <button aria-label="Share" class="flex-1 border border-slate-300 rounded-lg py-2 flex items-center justify-center hover:border-brand hover:text-brand transition">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.684 13.342a3 3 0 1 0 0-2.684l6.632-3.316a3 3 0 1 0 0-2.316L8.684 10.658a3 3 0 0 0 0 2.684zm0 0 6.632 3.316a3 3 0 1 0 0 2.316l-6.632-3.316z"/></svg>
+                  </button>
+                  <button aria-label="Copy link" class="flex-1 border border-slate-300 rounded-lg py-2 flex items-center justify-center hover:border-brand hover:text-brand transition">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 0 0-5.656 0l-4 4a4 4 0 1 0 5.656 5.656l1.102-1.101m-.758-4.899a4 4 0 0 0 5.656 0l4-4a4 4 0 0 0-5.656-5.656l-1.1 1.1"/></svg>
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </section>
+
+  <!-- ============ RELATED COURSES ============ -->
+  <section class="bg-brand-light border-y border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 py-14">
+      <div class="w-12 h-1 bg-gold mb-3 rounded-full"></div>
+      <h2 class="text-2xl md:text-3xl font-bold mb-2">Kursus Serupa</h2>
+      <p class="text-ink-muted text-sm mb-8">Lanjutkan belajar dengan topik yang berhubungan</p>
+
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
+        <a href="course-detail.html" class="course-card bg-white border border-slate-200 rounded-2xl overflow-hidden flex flex-col">
+          <div class="overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&q=80" alt="" class="h-44 w-full object-cover" />
+          </div>
+          <div class="p-5 flex flex-col flex-1">
+            <span class="text-xs font-bold text-gold-dark uppercase tracking-widest">Menengah</span>
+            <h3 class="mt-1 font-bold leading-snug">Manajemen Proyek Agile</h3>
+            <p class="text-sm text-ink-muted mt-1">Fajar Nugroho</p>
+            <div class="mt-auto pt-4 flex items-center justify-between border-t border-slate-100">
+              <span class="font-bold text-brand">Rp 279.000</span>
+              <span class="text-sm font-semibold text-brand">⭐ 4.6</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="course-detail.html" class="course-card bg-white border border-slate-200 rounded-2xl overflow-hidden flex flex-col">
+          <div class="overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=600&q=80" alt="" class="h-44 w-full object-cover" />
+          </div>
+          <div class="p-5 flex flex-col flex-1">
+            <span class="text-xs font-bold text-gold-dark uppercase tracking-widest">Pemula</span>
+            <h3 class="mt-1 font-bold leading-snug">Digital Marketing untuk Pemula</h3>
+            <p class="text-sm text-ink-muted mt-1">Nadia Rahma</p>
+            <div class="mt-auto pt-4 flex items-center justify-between border-t border-slate-100">
+              <span class="font-bold text-brand">Rp 219.000</span>
+              <span class="text-sm font-semibold text-brand">⭐ 4.8</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="course-detail.html" class="course-card bg-white border border-slate-200 rounded-2xl overflow-hidden flex flex-col">
+          <div class="overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80" alt="" class="h-44 w-full object-cover" />
+          </div>
+          <div class="p-5 flex flex-col flex-1">
+            <span class="text-xs font-bold text-gold-dark uppercase tracking-widest">Pemula</span>
+            <h3 class="mt-1 font-bold leading-snug">Excel untuk Produktivitas Kerja</h3>
+            <p class="text-sm text-ink-muted mt-1">Yoga Setiawan</p>
+            <div class="mt-auto pt-4 flex items-center justify-between border-t border-slate-100">
+              <span class="font-bold text-brand">Rp 179.000</span>
+              <span class="text-sm font-semibold text-brand">⭐ 4.7</span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MOBILE STICKY CTA ============ -->
+  <div id="mobileCta" class="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 px-4 py-3 flex items-center justify-between gap-3 shadow-[0_-8px_24px_-12px_rgba(0,0,0,.15)] z-40">
+    <div class="leading-tight">
+      <div class="text-lg font-extrabold text-brand">Rp 249.000</div>
+      <div class="text-[10px] text-ink-muted line-through">Rp 499.000</div>
+    </div>
+    <a href="register.html" class="bg-brand text-white font-bold px-6 py-3 rounded-lg hover:bg-brand-dark transition text-sm">
+      Daftar Sekarang
+    </a>
+  </div>
+  <div class="lg:hidden h-20"></div>
+
+  <!-- FOOTER -->
+  <footer class="bg-ink text-white">
+    <div class="max-w-7xl mx-auto px-4 py-12 grid gap-8 md:grid-cols-4 text-sm">
+      <div>
+        <div class="flex items-center gap-3">
+          <img src="assets/unmas-logo.png" alt="Logo UNMAS" class="h-10 w-10 object-contain bg-white rounded-full p-1" />
+          <div class="leading-tight">
+            <div class="text-base font-extrabold text-white">Universitas Mahasaraswati</div>
+            <div class="text-[10px] uppercase tracking-widest text-gold font-semibold">Learning Center</div>
+          </div>
+        </div>
+        <p class="mt-3 text-white/60">Platform belajar & sertifikasi untuk profesional Indonesia.</p>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-3 text-gold">Kategori</h4>
+        <ul class="space-y-2 text-white/70">
+          <li><a href="short-course.html" class="hover:text-gold">Short Course</a></li>
+          <li><a href="microteaching.html" class="hover:text-gold">Microteaching</a></li>
+          <li><a href="bnsp.html" class="hover:text-gold">Sertifikasi BNSP</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-3 text-gold">Perusahaan</h4>
+        <ul class="space-y-2 text-white/70">
+          <li><a href="#" class="hover:text-gold">Tentang</a></li>
+          <li><a href="#" class="hover:text-gold">Kontak</a></li>
+          <li><a href="#" class="hover:text-gold">Karier</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-3 text-gold">Bantuan</h4>
+        <ul class="space-y-2 text-white/70">
+          <li><a href="#" class="hover:text-gold">FAQ</a></li>
+          <li><a href="#" class="hover:text-gold">Syarat & Ketentuan</a></li>
+          <li><a href="#" class="hover:text-gold">Privasi</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/10 text-center text-xs text-white/50 py-4">
+      © 2025 Universitas Mahasaraswati. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>initCourseDetailPage();</script>
+</body>
+</html>
