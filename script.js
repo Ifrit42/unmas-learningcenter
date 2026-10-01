@@ -149,7 +149,7 @@ function initHomePage() {
           </div>
           <div class="mt-auto pt-4 flex items-center justify-between border-t border-slate-100">
             <span class="font-bold text-brand">${c.price}</span>
-            <button class="text-sm font-semibold text-brand hover:text-gold-dark transition">Detail →</button>
+            <a href="course-detail.html" class="text-sm font-semibold text-brand hover:text-gold-dark transition">Detail →</a>
           </div>
         </div>
       </article>
@@ -519,5 +519,37 @@ function initLoginPage() {
     setTimeout(() => {
       // window.location.href = "index.html"; // uncomment when ready
     }, 1500);
+  });
+}
+
+/* ============================================================
+   COURSE DETAIL PAGE
+   ============================================================ */
+
+function initCourseDetailPage() {
+  const curriculum = document.getElementById("curriculum");
+  if (!curriculum) return;
+
+  /* ---- Accordion: rotate chevron when open ---- */
+  const items = curriculum.querySelectorAll(".curriculum-item");
+  items.forEach(item => {
+    const chev = item.querySelector(".chev");
+    const sync = () => {
+      if (!chev) return;
+      chev.style.transform = item.open ? "rotate(90deg)" : "rotate(0deg)";
+    };
+    item.addEventListener("toggle", sync);
+    sync();
+  });
+
+  /* ---- Animate related-course card hover (already in style.css) ---- */
+
+  /* ---- Optional: scroll spy for "share" / "copy link" ---- */
+  document.querySelectorAll('[aria-label="Copy link"]').forEach(btn => {
+    btn.addEventListener("click", () => {
+      navigator.clipboard?.writeText(window.location.href);
+      btn.classList.add("text-brand", "border-brand");
+      setTimeout(() => btn.classList.remove("text-brand", "border-brand"), 1200);
+    });
   });
 }
