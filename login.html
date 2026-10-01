@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Masuk — UNMAS Learning Center</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: { DEFAULT:"#0B6B3A", dark:"#084F2B", light:"#E8F5EE" },
+            gold:  { DEFAULT:"#C9A227", dark:"#A8841B", light:"#F5E6B8" },
+            ink:   { DEFAULT:"#1A1A1A", muted:"#4B5563" },
+          },
+          fontFamily: { sans:["Inter","system-ui","sans-serif"] },
+        },
+      },
+    };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body class="font-sans text-ink bg-white">
+
+  <div class="h-1 bg-gradient-to-r from-brand via-gold to-brand"></div>
+
+  <!-- TOPBAR -->
+  <div id="topbar" class="bg-brand-dark text-white text-xs overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 h-9 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-4 min-w-0">
+        <a href="tel:+62361227019" class="flex items-center gap-1.5 hover:text-gold transition">
+          <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          (0361) 227019
+        </a>
+        <span class="hidden md:inline text-white/30">|</span>
+        <a href="mailto:info@unmas.ac.id" class="hidden md:flex items-center gap-1.5 hover:text-gold transition">
+          <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><path stroke-linecap="round" stroke-linejoin="round" d="m22 6-10 7L2 6"/></svg>
+          info@unmas.ac.id
+        </a>
+      </div>
+      <div class="flex items-center gap-2">
+        <div id="langSwitch" class="flex items-center gap-1 mr-2 pr-3 border-r border-white/20">
+          <button data-lang="id" class="lang-btn px-1.5 py-0.5 rounded font-semibold transition">ID</button>
+          <span class="text-white/30">|</span>
+          <button data-lang="en" class="lang-btn px-1.5 py-0.5 rounded font-semibold transition">EN</button>
+        </div>
+        <div class="flex items-center gap-1">
+          <a href="#" aria-label="TikTok" class="p-1.5 hover:text-gold transition"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+          <a href="#" aria-label="Instagram" class="p-1.5 hover:text-gold transition"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
+          <a href="#" aria-label="Facebook" class="p-1.5 hover:text-gold transition"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a href="#" aria-label="Twitter / X" class="p-1.5 hover:text-gold transition"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="#" aria-label="YouTube" class="p-1.5 hover:text-gold transition"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-200">
+    <nav class="max-w-7xl mx-auto flex items-center gap-4 px-4 h-16">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="assets/unmas-logo.png" alt="Logo UNMAS" class="h-10 w-10 object-contain" />
+        <div class="leading-tight">
+          <div class="text-base font-extrabold text-brand">Universitas Mahasaraswati</div>
+          <div class="text-[10px] uppercase tracking-widest text-gold-dark font-semibold">Learning Center</div>
+        </div>
+      </a>
+
+      <button id="menuBtn" class="md:hidden ml-auto p-2" aria-label="Menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+
+      <ul class="hidden md:flex items-center gap-6 text-sm font-medium ml-8">
+        <li><a href="index.html" class="hover:text-brand">Beranda</a></li>
+        <li><a href="short-course.html" class="hover:text-brand">Short Course</a></li>
+        <li><a href="microteaching.html" class="hover:text-brand">Microteaching</a></li>
+        <li><a href="bnsp.html" class="hover:text-brand">Sertifikasi BNSP</a></li>
+      </ul>
+
+      <div class="hidden md:flex items-center gap-3 ml-auto">
+        <a href="login.html" class="text-sm font-medium text-brand font-semibold">Masuk</a>
+        <a href="register.html" class="bg-brand text-white text-sm font-semibold px-4 py-2 rounded-lg hover:bg-brand-dark transition">Daftar</a>
+      </div>
+    </nav>
+
+    <div id="mobileMenu" class="hidden md:hidden border-t border-slate-200 px-4 py-3 space-y-2">
+      <a href="index.html" class="block py-2 font-medium">Beranda</a>
+      <a href="short-course.html" class="block py-2 font-medium">Short Course</a>
+      <a href="microteaching.html" class="block py-2 font-medium">Microteaching</a>
+      <a href="bnsp.html" class="block py-2 font-medium">Sertifikasi BNSP</a>
+      <div class="pt-2 flex gap-3">
+        <a href="login.html" class="flex-1 text-center border rounded-lg py-2 text-sm font-medium">Masuk</a>
+        <a href="register.html" class="flex-1 text-center bg-brand text-white rounded-lg py-2 text-sm font-semibold">Daftar</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ LOGIN ============ -->
+  <section class="bg-brand-light">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 min-h-[calc(100vh-8rem)]">
+
+      <!-- LEFT: FORM -->
+      <div class="bg-white px-5 py-12 md:px-12 lg:px-16 flex items-center">
+        <div class="w-full max-w-md mx-auto">
+
+          <div class="flex items-center gap-3 mb-6">
+            <span class="w-10 h-[3px] bg-gold rounded-full"></span>
+            <span class="text-xs font-bold tracking-widest uppercase text-gold-dark">Selamat Datang</span>
+          </div>
+
+          <h1 class="text-3xl md:text-4xl font-extrabold leading-tight">Masuk ke akunmu</h1>
+          <p class="mt-3 text-ink-muted text-sm">
+            Belum punya akun? <a href="register.html" class="text-brand font-semibold hover:text-gold-dark transition">Daftar sekarang</a>
+          </p>
+
+          <!-- Success banner (hidden by default) -->
+          <div id="loginSuccess" class="hidden mt-6 bg-brand-light border border-brand/30 rounded-xl p-5">
+            <div class="flex items-start gap-3">
+              <div class="w-9 h-9 rounded-full bg-brand text-white flex items-center justify-center shrink-0">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              </div>
+              <div>
+                <h3 class="font-bold text-brand">Berhasil masuk!</h3>
+                <p class="text-sm text-ink-muted mt-1">Selamat datang kembali. Mengalihkan ke dashboard...</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Error banner (hidden by default) -->
+          <div id="loginError" class="hidden mt-6 bg-red-50 border border-red-200 rounded-xl p-5">
+            <div class="flex items-start gap-3">
+              <div class="w-9 h-9 rounded-full bg-red-600 text-white flex items-center justify-center shrink-0">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+              </div>
+              <div>
+                <h3 class="font-bold text-red-700">Email atau password salah</h3>
+                <p class="text-sm text-red-600/80 mt-1">Periksa kembali, atau reset password jika lupa.</p>
+              </div>
+            </div>
+          </div>
+
+          <form id="loginForm" class="mt-8 space-y-5" novalidate>
+
+            <!-- Email -->
+            <div>
+              <label for="loginEmail" class="block text-sm font-semibold mb-1.5">Email</label>
+              <input id="loginEmail" name="email" type="email" placeholder="nama@email.com"
+                class="w-full border border-slate-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand focus:border-brand transition" />
+              <p class="field-error hidden text-xs text-red-600 mt-1">Masukkan email yang valid.</p>
+            </div>
+
+            <!-- Password -->
+            <div>
+              <label for="loginPassword" class="block text-sm font-semibold mb-1.5">Password</label>
+              <div class="relative">
+                <input id="loginPassword" name="password" type="password" placeholder="Masukkan password"
+                  class="w-full border border-slate-300 rounded-lg px-4 py-3 pr-11 text-sm focus:outline-none focus:ring-2 focus:ring-brand focus:border-brand transition" />
+                <button type="button" data-toggle-password="loginPassword"
+                  class="toggle-pw absolute inset-y-0 right-0 px-3 flex items-center text-ink-muted hover:text-brand transition" aria-label="Tampilkan password">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/></svg>
+                </button>
+              </div>
+              <p class="field-error hidden text-xs text-red-600 mt-1">Password minimal 8 karakter.</p>
+            </div>
+
+            <!-- Remember + Forgot -->
+            <div class="flex items-center justify-between">
+              <label class="flex items-center gap-2 cursor-pointer">
+                <input id="rememberMe" type="checkbox"
+                  class="w-4 h-4 rounded border-slate-300 text-brand focus:ring-brand" />
+                <span class="text-sm text-ink-muted">Ingat saya</span>
+              </label>
+              <a href="#" class="text-sm font-semibold text-brand hover:text-gold-dark transition">Lupa password?</a>
+            </div>
+
+            <button type="submit"
+              class="w-full bg-brand text-white font-bold py-3.5 rounded-lg hover:bg-brand-dark transition shadow-sm">
+              Masuk
+            </button>
+
+            <div class="relative py-2">
+              <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-slate-200"></div></div>
+              <div class="relative flex justify-center"><span class="bg-white px-3 text-xs text-ink-muted">atau masuk dengan</span></div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+              <button type="button" class="flex items-center justify-center gap-2 border border-slate-300 rounded-lg py-2.5 text-sm font-medium hover:border-brand hover:text-brand transition">
+                <svg class="w-4 h-4" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.76h3.56c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.56-2.76c-.98.66-2.23 1.06-3.72 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.84 14.11a6.6 6.6 0 0 1 0-4.22V7.05H2.18a11 11 0 0 0 0 9.9l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1a11 11 0 0 0-9.82 6.05l3.66 2.84C6.71 7.31 9.14 5.38 12 5.38z"/></svg>
+                Google
+              </button>
+              <button type="button" class="flex items-center justify-center gap-2 border border-slate-300 rounded-lg py-2.5 text-sm font-medium hover:border-brand hover:text-brand transition">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1 0-4.124 2.063 2.063 0 0 1 0 4.124zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                LinkedIn
+              </button>
+            </div>
+
+          </form>
+
+          <!-- Demo hint -->
+          <div class="mt-6 bg-gold-light border border-gold/40 rounded-lg p-3 text-xs text-ink-muted">
+            <strong class="text-ink">Demo:</strong> gunakan email apa saja yang valid + password min. 8 karakter untuk mencoba.
+          </div>
+
+        </div>
+      </div>
+
+      <!-- RIGHT: BRAND PANEL -->
+      <div class="relative hidden lg:flex items-center justify-center bg-brand text-white overflow-hidden p-12">
+        <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 20% 25%, #C9A227 0, transparent 40%), radial-gradient(circle at 80% 75%, #C9A227 0, transparent 40%);"></div>
+        <div class="absolute top-0 left-0 right-0 h-1 bg-gold"></div>
+
+        <div class="relative max-w-md">
+          <img src="assets/unmas-logo.png" alt="Logo UNMAS" class="h-14 w-14 object-contain bg-white rounded-full p-2 mb-8" />
+
+          <h2 class="text-3xl md:text-4xl font-extrabold leading-tight">
+            Lanjutkan <span class="text-gold">perjalanan</span> belajarmu
+          </h2>
+          <p class="mt-4 text-white/80">
+            Semua kelas, materi, dan sertifikatmu tersimpan rapi dalam satu akun.
+          </p>
+
+          <ul class="mt-8 space-y-4 text-sm">
+            <li class="flex items-start gap-3">
+              <span class="w-6 h-6 rounded-full bg-gold/20 text-gold flex items-center justify-center shrink-0 mt-0.5">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              </span>
+              <span class="text-white/90">Lanjutkan kelas yang belum selesai</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-6 h-6 rounded-full bg-gold/20 text-gold flex items-center justify-center shrink-0 mt-0.5">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              </span>
+              <span class="text-white/90">Akses rekaman & materi kapan saja</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-6 h-6 rounded-full bg-gold/20 text-gold flex items-center justify-center shrink-0 mt-0.5">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              </span>
+              <span class="text-white/90">Unduh sertifikat digital kamu</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-6 h-6 rounded-full bg-gold/20 text-gold flex items-center justify-center shrink-0 mt-0.5">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              </span>
+              <span class="text-white/90">Riwayat & progres belajar terukur</span>
+            </li>
+          </ul>
+
+          <!-- Stat strip -->
+          <div class="mt-10 grid grid-cols-3 gap-4 border-t border-white/15 pt-6">
+            <div>
+              <div class="text-2xl font-extrabold text-gold">24+</div>
+              <div class="text-[11px] text-white/60 mt-1">Kursus</div>
+            </div>
+            <div>
+              <div class="text-2xl font-extrabold text-gold">1.2k+</div>
+              <div class="text-[11px] text-white/60 mt-1">Peserta aktif</div>
+            </div>
+            <div>
+              <div class="text-2xl font-extrabold text-gold">4.8</div>
+              <div class="text-[11px] text-white/60 mt-1">Rating</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-ink text-white">
+    <div class="max-w-7xl mx-auto px-4 py-12 grid gap-8 md:grid-cols-4 text-sm">
+      <div>
+        <div class="flex items-center gap-3">
+          <img src="assets/unmas-logo.png" alt="Logo UNMAS" class="h-10 w-10 object-contain bg-white rounded-full p-1" />
+          <div class="leading-tight">
+            <div class="text-base font-extrabold text-white">Universitas Mahasaraswati</div>
+            <div class="text-[10px] uppercase tracking-widest text-gold font-semibold">Learning Center</div>
+          </div>
+        </div>
+        <p class="mt-3 text-white/60">Platform belajar & sertifikasi untuk profesional Indonesia.</p>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-3 text-gold">Kategori</h4>
+        <ul class="space-y-2 text-white/70">
+          <li><a href="short-course.html" class="hover:text-gold">Short Course</a></li>
+          <li><a href="microteaching.html" class="hover:text-gold">Microteaching</a></li>
+          <li><a href="bnsp.html" class="hover:text-gold">Sertifikasi BNSP</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-3 text-gold">Perusahaan</h4>
+        <ul class="space-y-2 text-white/70">
+          <li><a href="#" class="hover:text-gold">Tentang</a></li>
+          <li><a href="#" class="hover:text-gold">Kontak</a></li>
+          <li><a href="#" class="hover:text-gold">Karier</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-3 text-gold">Bantuan</h4>
+        <ul class="space-y-2 text-white/70">
+          <li><a href="#" class="hover:text-gold">FAQ</a></li>
+          <li><a href="#" class="hover:text-gold">Syarat & Ketentuan</a></li>
+          <li><a href="#" class="hover:text-gold">Privasi</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/10 text-center text-xs text-white/50 py-4">
+      © 2025 Universitas Mahasaraswati. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>initLoginPage();</script>
+</body>
+</html>
