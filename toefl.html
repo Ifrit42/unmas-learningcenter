@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TOEFL ITP — UNMAS Learning Center</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: { DEFAULT:"#0B6B3A", dark:"#084F2B", light:"#E8F5EE" },
+            gold:  { DEFAULT:"#C9A227", dark:"#A8841B", light:"#F5E6B8" },
+            ink:   { DEFAULT:"#1A1A1A", muted:"#4B5563" },
+          },
+          fontFamily: { sans:["Inter","system-ui","sans-serif"] },
+        },
+      },
+    };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body class="font-sans text-ink bg-white">
+
+  <div class="h-1 bg-gradient-to-r from-brand via-gold to-brand"></div>
+
+  <!-- TOPBAR -->
+  <div id="topbar" class="bg-brand-dark text-white text-xs overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 h-9 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-4 min-w-0">
+        <a href="tel:+62361227019" class="flex items-center gap-1.5 hover:text-gold transition">
+          <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          (0361) 227019
+        </a>
+        <span class="hidden md:inline text-white/30">|</span>
+        <a href="mailto:info@unmas.ac.id" class="hidden md:flex items-center gap-1.5 hover:text-gold transition">
+          <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><path stroke-linecap="round" stroke-linejoin="round" d="m22 6-10 7L2 6"/></svg>
+          info@unmas.ac.id
+        </a>
+      </div>
+      <div class="flex items-center gap-2">
+        <div id="langSwitch" class="flex items-center gap-1 mr-2 pr-3 border-r border-white/20">
+          <button data-lang="id" class="lang-btn px-1.5 py-0.5 rounded font-semibold transition">ID</button>
+          <span class="text-white/30">|</span>
+          <button data-lang="en" class="lang-btn px-1.5 py-0.5 rounded font-semibold transition">EN</button>
+        </div>
+        <div class="flex items-center gap-1">
+          <a href="#" aria-label="TikTok" class="p-1.5 hover:text-gold transition"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+          <a href="#" aria-label="Instagram" class="p-1.5 hover:text-gold transition"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
+          <a href="#" aria-label="Facebook" class="p-1.5 hover:text-gold transition"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a href="#" aria-label="Twitter / X" class="p-1.5 hover:text-gold transition"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="#" aria-label="YouTube" class="p-1.5 hover:text-gold transition"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-200">
+    <nav class="max-w-7xl mx-auto flex items-center gap-4 px-4 h-16">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="assets/unmas-logo.png" alt="Logo UNMAS" class="h-10 w-10 object-contain" />
+        <div class="leading-tight">
+          <div class="text-base font-extrabold text-brand">Universitas Mahasaraswati</div>
+          <div class="text-[10px] uppercase tracking-widest text-gold-dark font-semibold">Learning Center</div>
+        </div>
+      </a>
+
+      <button id="menuBtn" class="md:hidden ml-auto p-2" aria-label="Menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+
+      <ul class="hidden md:flex items-center gap-6 text-sm font-medium ml-8">
+        <li><a href="index.html" class="hover:text-brand">Beranda</a></li>
+        <li><a href="short-course.html" class="hover:text-brand">Short Course</a></li>
+        <li><a href="microteaching.html" class="hover:text-brand">Microteaching</a></li>
+        <li><a href="bnsp.html" class="hover:text-brand">Sertifikasi BNSP</a></li>
+        <li><a href="toefl.html" class="text-brand font-semibold">TOEFL ITP</a></li>
+      </ul>
+
+      <div class="hidden md:flex items-center gap-3 ml-auto">
+        <a href="login.html" class="text-sm font-medium hover:text-brand">Masuk</a>
+        <a href="register.html" class="bg-brand text-white text-sm font-semibold px-4 py-2 rounded-lg hover:bg-brand-dark transition">Daftar</a>
+      </div>
+    </nav>
+
+    <div id="mobileMenu" class="hidden md:hidden border-t border-slate-200 px-4 py-3 space-y-2">
+      <a href="index.html" class="block py-2 font-medium">Beranda</a>
+      <a href="short-course.html" class="block py-2 font-medium">Short Course</a>
+      <a href="microteaching.html" class="block py-2 font-medium">Microteaching</a>
+      <a href="bnsp.html" class="block py-2 font-medium">Sertifikasi BNSP</a>
+      <a href="toefl.html" class="block py-2 font-semibold text-brand">TOEFL ITP</a>
+      <div class="pt-2 flex gap-3">
+        <a href="login.html" class="flex-1 text-center border rounded-lg py-2 text-sm font-medium">Masuk</a>
+        <a href="register.html" class="flex-1 text-center bg-brand text-white rounded-lg py-2 text-sm font-semibold">Daftar</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ HERO — TOEFL ============ -->
+  <section class="relative bg-brand text-white overflow-hidden">
+    <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 15% 20%, #C9A227 0, transparent 40%), radial-gradient(circle at 85% 80%, #C9A227 0, transparent 40%);"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 py-14 md:py-20 grid lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <nav class="text-xs text-white/60 mb-6">
+          <a href="index.html" class="hover:text-gold">Beranda</a>
+          <span class="mx-2">/</span>
+          <span class="text-white font-medium">TOEFL ITP</span>
+        </nav>
+
+        <span class="inline-flex items-center gap-2 text-[10px] font-bold tracking-widest uppercase bg-gold text-ink px-3 py-1 rounded-full">
+          <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.09 4.26 4.71.68-3.4 3.31.8 4.7L12 12.77 7.8 14.95l.8-4.7-3.4-3.31 4.71-.68L12 2z"/></svg>
+          Sertifikasi Resmi ETS / IIEF
+        </span>
+
+        <h1 class="mt-4 text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight">
+          TOEFL <span class="text-gold">ITP</span>
+        </h1>
+
+        <p class="mt-5 text-white/80 md:text-lg max-w-xl">
+          Tes resmi <i>Test of English as a Foreign Language – Institutional Testing Program</i>
+          yang diselenggarakan UPT Laboratorium dan Pusat Bahasa UNMAS Denpasar bekerja sama dengan
+          IIEF Jakarta. Diakui untuk beasiswa, melamar kerja, dan studi lanjut.
+        </p>
+
+        <div class="mt-7 flex flex-wrap gap-3">
+          <a href="#slots" class="bg-gold text-ink font-bold px-6 py-3 rounded-lg hover:bg-gold-dark hover:text-white transition">Lihat Jadwal & Kuota</a>
+          <a href="#alur" class="border border-white/25 text-white font-semibold px-6 py-3 rounded-lg hover:bg-white hover:text-brand transition">Cara Daftar</a>
+        </div>
+
+        <!-- Quick facts -->
+        <div class="mt-10 grid grid-cols-3 gap-4 border-t border-white/15 pt-6 max-w-md">
+          <div>
+            <div class="text-xl font-extrabold text-gold">Rp 525rb</div>
+            <div class="text-[11px] text-white/60 mt-1">Civitas UNMAS</div>
+          </div>
+          <div>
+            <div class="text-xl font-extrabold text-gold">2 Tahun</div>
+            <div class="text-[11px] text-white/60 mt-1">Masa berlaku</div>
+          </div>
+          <div>
+            <div class="text-xl font-extrabold text-gold">3 Bagian</div>
+            <div class="text-[11px] text-white/60 mt-1">Materi uji</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: flyer -->
+      <div class="hidden lg:block relative">
+        <div class="absolute -inset-3 bg-gold/20 rounded-3xl rotate-2"></div>
+        <img src="https://lab.unmas.ac.id/assets/lab-bahasa/toefl/flyer-toefl.jpg"
+             alt="Brosur TOEFL ITP UNMAS"
+             class="relative rounded-2xl w-full max-h-[480px] object-cover shadow-2xl ring-4 ring-gold/30" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PENGERTIAN / APA ITU TOEFL ITP ============ -->
+  <section class="max-w-7xl mx-auto px-4 py-14 md:py-20">
+    <div class="grid lg:grid-cols-2 gap-12 items-start">
+      <div>
+        <div class="w-12 h-1 bg-gold mb-3 rounded-full"></div>
+        <h2 class="text-2xl md:text-3xl font-bold">Apa itu TOEFL ITP?</h2>
+
+        <p class="mt-5 text-ink-muted leading-relaxed">
+          TOEFL ITP adalah <strong>TOEFL resmi</strong> yang dikeluarkan oleh
+          <strong>ETS (<i>Educational Testing Service</i>)</strong> — lembaga resmi penerbit
+          tes TOEFL yang berpusat di Princeton, Amerika Serikat — melalui kantor perwakilannya
+          <strong>IIEF (<i>International Indonesian Education Foundation</i>)</strong>, Jakarta.
+        </p>
+        <p class="mt-3 text-ink-muted leading-relaxed">
+          UPT Laboratorium dan Pusat Bahasa UNMAS Denpasar menyelenggarakan TOEFL ITP secara
+          resmi sebagai bentuk komitmen menyiapkan standar penilaian kemampuan Bahasa Inggris
+          bagi seluruh civitas academica dan masyarakat umum. <strong>Sertifikat diterbitkan
+          langsung oleh ETS Princeton</strong>, sehingga dapat diverifikasi keasliannya.
+        </p>
+
+        <div class="mt-6 bg-brand-light border border-brand/20 rounded-xl p-4 text-sm text-ink-muted">
+          <strong class="text-brand">Kegunaan TOEFL ITP:</strong> mendaftar beasiswa (termasuk LPDP dalam negeri),
+          melamar pekerjaan, promosi jabatan, mendaftar universitas, dan keperluan resmi lainnya.
+        </div>
+      </div>
+
+      <!-- 3 test sections -->
+      <div>
+        <h3 class="text-sm font-bold tracking-widest uppercase text-gold-dark mb-4">Materi yang diujikan</h3>
+        <div class="space-y-3">
+          <div class="flex items-center gap-4 bg-white border border-slate-200 rounded-xl p-4">
+            <div class="w-12 h-12 rounded-lg bg-brand-light text-brand flex items-center justify-center shrink-0">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.536 8.464a5 5 0 0 1 0 7.072M12 6a9 9 0 0 1 0 12M9 12a3 3 0 0 1 0 0m-3.5 3.5a5 5 0 0 1 0-7"/><path stroke-linecap="round" stroke-linejoin="round" d="M5 12a1 1 0 0 1 0 0"/></svg>
+            </div>
+            <div>
+              <div class="font-bold">Listening Comprehension</div>
+              <div class="text-xs text-ink-muted mt-0.5">Pemahaman percakapan & monolog bahasa Inggris</div>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-4 bg-white border border-slate-200 rounded-xl p-4">
+            <div class="w-12 h-12 rounded-lg bg-gold-light text-gold-dark flex items-center justify-center shrink-0">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+            </div>
+            <div>
+              <div class="font-bold">Structure & Written Expression</div>
+              <div class="text-xs text-ink-muted mt-0.5">Tata bahasa dan struktur kalimat tertulis</div>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-4 bg-white border border-slate-200 rounded-xl p-4">
+            <div class="w-12 h-12 rounded-lg bg-brand-light text-brand flex items-center justify-center shrink-0">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+            </div>
+            <div>
+              <div class="font-bold">Reading Comprehension</div>
+              <div class="text-xs text-ink-muted mt-0.5">Pemahaman bacaan akademik & non-akademik</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ JADWAL & KUOTA ============ -->
+  <section id="slots" class="bg-brand-light border-y border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 py-14 md:py-20">
+      <div class="max-w-2xl">
+        <div class="w-12 h-1 bg-gold mb-3 rounded-full"></div>
+        <h2 class="text-2xl md:text-3xl font-bold">Jadwal & Kuota Tes</h2>
+        <p class="text-ink-muted text-sm mt-2">
+          Tes TOEFL ITP diadakan setiap akhir bulan. Pendaftaran dapat ditutup sewaktu-waktu
+          apabila kuota gelombang telah terpenuhi — segera konfirmasi dan daftar.
+        </p>
+      </div>
+
+      <div id="slotGrid" class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"></div>
+
+      <div class="mt-6 text-xs text-ink-muted text-center">
+        Kuota ditampilkan secara berkala. Konfirmasi slot terbaru via WhatsApp
+        <a href="https://wa.me/6281337275638" target="_blank" rel="noopener" class="text-brand font-semibold hover:underline">+62 813-3727-5638</a>.
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HARGA ============ -->
+  <section class="max-w-7xl mx-auto px-4 py-14 md:py-20">
+    <div class="max-w-2xl mb-8">
+      <div class="w-12 h-1 bg-gold mb-3 rounded-full"></div>
+      <h2 class="text-2xl md:text-3xl font-bold">Biaya Pendaftaran</h2>
+      <p class="text-ink-muted text-sm mt-2">Harga sudah termasuk sertifikat resmi dari ETS.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6 max-w-3xl">
+      <!-- Civitas -->
+      <div class="bg-white border-2 border-brand rounded-2xl p-6 md:p-8 relative">
+        <span class="absolute -top-3 left-6 text-[10px] font-bold tracking-widest uppercase bg-brand text-white px-3 py-1 rounded-full">Khusus Mahasiswa/Alumni</span>
+        <h3 class="font-bold text-lg mt-2">Civitas Academica UNMAS</h3>
+        <p class="text-xs text-ink-muted mt-1">Mahasiswa aktif, dosen, dan alumni</p>
+        <div class="mt-5 flex items-end gap-2">
+          <span class="text-4xl font-extrabold text-brand">Rp 525.000</span>
+        </div>
+        <ul class="mt-5 space-y-2 text-sm text-ink-muted">
+          <li class="flex items-start gap-2"><svg class="w-4 h-4 text-brand shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> Sertifikat resmi ETS</li>
+          <li class="flex items-start gap-2"><svg class="w-4 h-4 text-brand shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> Kartu peserta & jadwal</li>
+          <li class="flex items-start gap-2"><svg class="w-4 h-4 text-brand shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> Wajib menunjukkan KTM/Kartu Alumni</li>
+        </ul>
+        <a href="https://bit.ly/LayananTOEFLITP" target="_blank" rel="noopener" class="mt-6 block text-center w-full bg-brand text-white font-bold py-3 rounded-lg hover:bg-brand-dark transition">Daftar Civitas</a>
+      </div>
+
+      <!-- Umum -->
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 md:p-8">
+        <h3 class="font-bold text-lg mt-2">Umum</h3>
+        <p class="text-xs text-ink-muted mt-1">Masyarakat umum</p>
+        <div class="mt-5 flex items-end gap-2">
+          <span class="text-4xl font-extrabold text-brand">Rp 550.000</span>
+        </div>
+        <ul class="mt-5 space-y-2 text-sm text-ink-muted">
+          <li class="flex items-start gap-2"><svg class="w-4 h-4 text-brand shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> Sertifikat resmi ETS</li>
+          <li class="flex items-start gap-2"><svg class="w-4 h-4 text-brand shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> Kartu peserta & jadwal</li>
+          <li class="flex items-start gap-2"><svg class="w-4 h-4 text-brand shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> Identitas resmi (KTP/SIM/Paspor)</li>
+        </ul>
+        <a href="https://bit.ly/LayananTOEFLITP" target="_blank" rel="noopener" class="mt-6 block text-center w-full border-2 border-brand text-brand font-bold py-3 rounded-lg hover:bg-brand hover:text-white transition">Daftar Umum</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ALUR PENDAFTARAN ============ -->
+  <section id="alur" class="bg-brand-light border-y border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 py-14 md:py-20">
+      <div class="max-w-2xl mb-10">
+        <div class="w-12 h-1 bg-gold mb-3 rounded-full"></div>
+        <h2 class="text-2xl md:text-3xl font-bold">Cara & Alur Pendaftaran</h2>
+        <p class="text-ink-muted text-sm mt-2">Ikuti langkah berikut untuk memastikan slot tes kamu aman.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 relative">
+          <div class="absolute -top-3 -left-3 w-10 h-10 rounded-full bg-brand text-white flex items-center justify-center font-extrabold text-sm shadow-lg">1</div>
+          <h3 class="font-bold mt-3">Cek jadwal & kuota</h3>
+          <p class="mt-2 text-sm text-ink-muted">Lihat gelombang yang masih tersedia di bagian <a href="#slots" class="text-brand font-semibold hover:underline">Jadwal & Kuota</a>.</p>
+        </div>
+
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 relative">
+          <div class="absolute -top-3 -left-3 w-10 h-10 rounded-full bg-brand text-white flex items-center justify-center font-extrabold text-sm shadow-lg">2</div>
+          <h3 class="font-bold mt-3">Konfirmasi via WhatsApp</h3>
+          <p class="mt-2 text-sm text-ink-muted">Hubungi CS untuk memastikan slot masih tersedia sebelum melakukan pembayaran.</p>
+          <a href="https://wa.me/6281337275638" target="_blank" rel="noopener" class="mt-3 inline-flex items-center gap-1.5 text-brand text-sm font-semibold hover:underline">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Chat CS
+          </a>
+        </div>
+
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 relative">
+          <div class="absolute -top-3 -left-3 w-10 h-10 rounded-full bg-brand text-white flex items-center justify-center font-extrabold text-sm shadow-lg">3</div>
+          <h3 class="font-bold mt-3">Isi formulir pendaftaran</h3>
+          <p class="mt-2 text-sm text-ink-muted">Lengkapi data diri melalui formulir online resmi.</p>
+          <a href="https://bit.ly/LayananTOEFLITP" target="_blank" rel="noopener" class="mt-3 inline-flex items-center gap-1.5 text-brand text-sm font-semibold hover:underline">Buka formulir →</a>
+        </div>
+
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 relative">
+          <div class="absolute -top-3 -left-3 w-10 h-10 rounded-full bg-brand text-white flex items-center justify-center font-extrabold text-sm shadow-lg">4</div>
+          <h3 class="font-bold mt-3">Lakukan pembayaran</h3>
+          <p class="mt-2 text-sm text-ink-muted">Transfer sesuai tarif (Civitas Rp 525.000 / Umum Rp 550.000) ke rekening yang diinfokan CS.</p>
+        </div>
+
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 relative">
+          <div class="absolute -top-3 -left-3 w-10 h-10 rounded-full bg-brand text-white flex items-center justify-center font-extrabold text-sm shadow-lg">5</div>
+          <h3 class="font-bold mt-3">Terima konfirmasi & jadwal</h3>
+          <p class="mt-2 text-sm text-ink-muted">Kamu akan menerima kartu peserta dan jadwal tes via WhatsApp/email.</p>
+        </div>
+
+        <div class="bg-gold-light border-2 border-gold/40 rounded-2xl p-6 relative">
+          <div class="absolute -top-3 -left-3 w-10 h-10 rounded-full bg-gold text-ink flex items-center justify-center font-extrabold text-sm shadow-lg">6</div>
+          <h3 class="font-bold mt-3">Ikuti tes & terima sertifikat</h3>
+          <p class="mt-2 text-sm text-ink-muted">Hadir sesuai jadwal. Sertifikat resmi ETS akan dikirim setelah proses selesai.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BROSUR / PAMFLET ============ -->
+  <section class="max-w-7xl mx-auto px-4 py-14 md:py-20">
+    <div class="max-w-2xl mb-8">
+      <div class="w-12 h-1 bg-gold mb-3 rounded-full"></div>
+      <h2 class="text-2xl md:text-3xl font-bold">Brosur Resmi</h2>
+      <p class="text-ink-muted text-sm mt-2">Unduh atau lihat brosur TOEFL ITP UNMAS dalam format gambar.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6 items-center">
+      <div class="bg-slate-100 border border-slate-200 rounded-2xl overflow-hidden">
+        <img src="assets/toefl/flyer-toefl.jpg"
+             alt="Brosur TOEFL ITP"
+             onerror="this.src='https://lab.unmas.ac.id/assets/lab-bahasa/toefl/jadwal_terkini.jpg'"
+             class="w-full h-auto" />
+      </div>
+      <div>
+        <h3 class="font-bold text-lg">TOEFL ITP Test Taker Handbook & Tata Tertib</h3>
+        <p class="mt-3 text-sm text-ink-muted leading-relaxed">
+          Pelajari panduan resmi sebelum mengikuti tes. Dokumen berisi tata tertib pelaksanaan,
+          aturan selama tes, serta informasi penting lainnya agar kamu siap dan tidak melanggar aturan.
+        </p>
+
+        <div class="mt-5 space-y-3">
+          <a href="https://lab.unmas.ac.id/assets/lab-bahasa/toefl/Toefl ITP Test Taker Handbook 2025.pdf" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-3 bg-white border border-slate-200 rounded-xl p-4 hover:border-brand transition group">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-lg bg-brand-light text-brand flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z"/></svg>
+              </div>
+              <div>
+                <div class="font-semibold text-sm">Test Taker Handbook 2025</div>
+                <div class="text-xs text-ink-muted">PDF · Panduan peserta tes</div>
+              </div>
+            </div>
+            <svg class="w-5 h-5 text-ink-muted group-hover:text-brand transition" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+          </a>
+
+          <a href="https://lab.unmas.ac.id/assets/lab-bahasa/toefl/Tata Tertib Pelaksanaan Tes_2025.pdf" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-3 bg-white border border-slate-200 rounded-xl p-4 hover:border-brand transition group">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-lg bg-gold-light text-gold-dark flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2m-6 9l2 2 4-4"/></svg>
+              </div>
+              <div>
+                <div class="font-semibold text-sm">Tata Tertib Pelaksanaan Tes</div>
+                <div class="text-xs text-ink-muted">PDF · Aturan & tata tertib</div>
+              </div>
+            </div>
+            <svg class="w-5 h-5 text-ink-muted group-hover:text-brand transition" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="bg-brand-light border-y border-slate-200">
+    <div class="max-w-4xl mx-auto px-4 py-14 md:py-20">
+      <div class="text-center mb-10">
+        <div class="w-12 h-1 bg-gold mx-auto mb-3 rounded-full"></div>
+        <h2 class="text-2xl md:text-3xl font-bold">Pertanyaan Umum</h2>
+        <p class="text-ink-muted text-sm mt-2">Hal-hal yang paling sering ditanyakan peserta.</p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden divide-y divide-slate-200">
+
+        <details class="group">
+          <summary class="flex items-center gap-3 px-5 py-4 cursor-pointer hover:bg-brand-light/50 transition">
+            <svg class="chev w-4 h-4 text-ink-muted transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            <span class="font-semibold text-sm flex-1">TOEFL ITP bisa digunakan untuk keperluan apa saja?</span>
+          </summary>
+          <p class="px-5 pb-4 pl-12 text-sm text-ink-muted">Untuk keperluan resmi seperti mendaftar beasiswa, mendaftar universitas, melamar pekerjaan, promosi jabatan, dan kegiatan resmi lainnya.</p>
+        </details>
+
+        <details class="group">
+          <summary class="flex items-center gap-3 px-5 py-4 cursor-pointer hover:bg-brand-light/50 transition">
+            <svg class="chev w-4 h-4 text-ink-muted transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            <span class="font-semibold text-sm flex-1">Apakah TOEFL ITP bisa untuk LPDP?</span>
+          </summary>
+          <p class="px-5 pb-4 pl-12 text-sm text-ink-muted">Bisa. Untuk beasiswa LPDP program dalam negeri, TOEFL ITP diterima sebagai syarat bahasa Inggris. Untuk program luar negeri, umumnya menggunakan TOEFL iBT.</p>
+        </details>
+
+        <details class="group">
+          <summary class="flex items-center gap-3 px-5 py-4 cursor-pointer hover:bg-brand-light/50 transition">
+            <svg class="chev w-4 h-4 text-ink-muted transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            <span class="font-semibold text-sm flex-1">Berapa lama masa berlaku sertifikat TOEFL ITP?</span>
+          </summary>
+          <p class="px-5 pb-4 pl-12 text-sm text-ink-muted">Sertifikat TOEFL ITP berlaku selama <strong>2 tahun</strong> sejak tanggal penerbitan.</p>
+        </details>
+
+        <details class="group">
+          <summary class="flex items-center gap-3 px-5 py-4 cursor-pointer hover:bg-brand-light/50 transition">
+            <svg class="chev w-4 h-4 text-ink-muted transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            <span class="font-semibold text-sm flex-1">Apa perbedaan TOEFL ITP dan TOEFL iBT?</span>
+          </summary>
+          <p class="px-5 pb-4 pl-12 text-sm text-ink-muted">TOEFL ITP menguji Listening, Structure & Written Expression, dan Reading. TOEFL iBT lebih lengkap: selain tiga bagian tersebut, ada juga bagian Speaking dan Writing.</p>
+        </details>
+
+        <details class="group">
+          <summary class="flex items-center gap-3 px-5 py-4 cursor-pointer hover:bg-brand-light/50 transition">
+            <svg class="chev w-4 h-4 text-ink-muted transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            <span class="font-semibold text-sm flex-1">Apa bedanya TOEFL Prediction dan TOEFL ITP?</span>
+          </summary>
+          <p class="px-5 pb-4 pl-12 text-sm text-ink-muted">TOEFL Prediction adalah tes prediksi dengan tingkat akurasi skor terbatas, sertifikatnya diterbitkan oleh lembaga penyelenggara. TOEFL ITP adalah TOEFL resmi dari ETS — sertifikat diterbitkan langsung dari ETS Princeton, New Jersey, Amerika Serikat.</p>
+        </details>
+
+        <details class="group">
+          <summary class="flex items-center gap-3 px-5 py-4 cursor-pointer hover:bg-brand-light/50 transition">
+            <svg class="chev w-4 h-4 text-ink-muted transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            <span class="font-semibold text-sm flex-1">Apakah kuota bisa penuh sebelum tanggal tes?</span>
+          </summary>
+          <p class="px-5 pb-4 pl-12 text-sm text-ink-muted">Ya. Pendaftaran dapat ditutup lebih awal apabila kuota tiap gelombang sudah terpenuhi. Kami sarankan konfirmasi dan daftar segera setelah kuota dibuka.</p>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ KONTAK & JADWAL LAYANAN ============ -->
+  <section class="max-w-7xl mx-auto px-4 py-14 md:py-20">
+    <div class="grid lg:grid-cols-2 gap-10">
+
+      <!-- Contact -->
+      <div>
+        <div class="w-12 h-1 bg-gold mb-3 rounded-full"></div>
+        <h2 class="text-2xl md:text-3xl font-bold">Butuh Informasi Lebih Lanjut?</h2>
+        <p class="mt-3 text-ink-muted text-sm leading-relaxed">
+          Hubungi <i>Customer Service</i> kami untuk pertanyaan seputar jadwal, kuota, biaya,
+          dan proses pendaftaran. Pastikan kamu mendaftar melalui kanal resmi UNMAS untuk
+          menghindari sertifikat TOEFL ITP palsu.
+        </p>
+
+        <div class="mt-6 space-y-3">
+          <a href="tel:+62361227019" class="flex items-center gap-4 bg-white border border-slate-200 rounded-xl p-4 hover:border-brand transition">
+            <div class="w-10 h-10 rounded-lg bg-brand-light text-brand flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <div class="text-xs text-ink-muted">Telepon Kantor</div>
+              <div class="font-semibold">(0361) 227019</div>
+            </div>
+          </a>
+
+          <a href="https://wa.me/6281337275638" target="_blank" rel="noopener" class="flex items-center gap-4 bg-white border border-slate-200 rounded-xl p-4 hover:border-brand transition">
+            <div class="w-10 h-10 rounded-lg bg-brand-light text-brand flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </div>
+            <div>
+              <div class="text-xs text-ink-muted">WhatsApp CS</div>
+              <div class="font-semibold">+62 813-3727-5638</div>
+            </div>
+          </a>
+
+          <a href="mailto:info@unmas.ac.id" class="flex items-center gap-4 bg-white border border-slate-200 rounded-xl p-4 hover:border-brand transition">
+            <div class="w-10 h-10 rounded-lg bg-brand-light text-brand flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><path stroke-linecap="round" stroke-linejoin="round" d="m22 6-10 7L2 6"/></svg>
+            </div>
+            <div>
+              <div class="text-xs text-ink-muted">Email</div>
+              <div class="font-semibold">info@unmas.ac.id</div>
+            </div>
+          </a>
+
+          <div class="flex items-start gap-4 bg-white border border-slate-200 rounded-xl p-4">
+            <div class="w-10 h-10 rounded-lg bg-brand-light text-brand flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 0 1-2.827 0l-4.244-4.243a8 8 0 1 1 11.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/></svg>
+            </div>
+            <div>
+              <div class="text-xs text-ink-muted">Alamat</div>
+              <div class="font-semibold text-sm">Jln. Kamboja No.11 A Denpasar</div>
+              <div class="text-xs text-ink-muted mt-0.5">Jln. Soka No. 47 Denpasar</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Schedule -->
+      <div>
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 md:p-8">
+          <div class="w-12 h-1 bg-gold mb-3 rounded-full"></div>
+          <h3 class="text-xl font-bold">Jadwal Layanan</h3>
+          <p class="text-xs text-ink-muted mt-1">Senin – Sabtu</p>
+
+          <ul class="mt-5 space-y-2.5 text-sm">
+            <li class="flex items-center justify-between"><span class="text-ink-muted">Senin</span><span class="font-semibold">08.30 – 14.00</span></li>
+            <li class="flex items-center justify-between"><span class="text-ink-muted">Selasa</span><span class="font-semibold">08.30 – 14.00</span></li>
+            <li class="flex items-center justify-between"><span class="text-ink-muted">Rabu</span><span class="font-semibold">08.30 – 14.00</span></li>
+            <li class="flex items-center justify-between"><span class="text-ink-muted">Kamis</span><span class="font-semibold">08.30 – 14.00</span></li>
+            <li class="flex items-center justify-between"><span class="text-ink-muted">Jumat</span><span class="font-semibold">08.30 – 14.00</span></li>
+            <li class="flex items-center justify-between"><span class="text-ink-muted">Sabtu</span><span class="font-semibold">08.30 – 14.00</span></li>
+            <li class="flex items-center justify-between border-t border-slate-200 pt-3 mt-1"><span class="text-ink-muted">Minggu</span><span class="font-semibold text-red-600">Tutup</span></li>
+          </ul>
+
+          <div class="mt-6 pt-5 border-t border-slate-200">
+            <a href="https://bit.ly/LayananTOEFLITP" target="_blank" rel="noopener" class="block text-center w-full bg-brand text-white font-bold py-3 rounded-lg hover:bg-brand-dark transition">Daftar TOEFL ITP</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="max-w-7xl mx-auto px-4 pb-16">
+    <div class="relative bg-brand rounded-2xl px-6 py-12 md:px-14 md:py-16 text-center text-white overflow-hidden">
+      <div class="absolute top-0 left-0 right-0 h-1 bg-gold"></div>
+      <h2 class="text-2xl md:text-4xl font-bold">Siap raih sertifikat TOEFL ITP resmi?</h2>
+      <p class="mt-3 text-white/80 max-w-xl mx-auto">Klik tombol di bawah untuk mendaftar langsung melalui formulir resmi UNMAS.</p>
+      <a href="https://bit.ly/LayananTOEFLITP" target="_blank" rel="noopener" class="inline-block mt-6 bg-gold text-ink font-bold px-6 py-3 rounded-lg hover:bg-gold-dark hover:text-white transition">Daftar Sekarang</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-ink text-white">
+    <div class="max-w-7xl mx-auto px-4 py-12 grid gap-8 md:grid-cols-4 text-sm">
+      <div>
+        <div class="flex items-center gap-3">
+          <img src="assets/unmas-logo.png" alt="Logo UNMAS" class="h-10 w-10 object-contain bg-white rounded-full p-1" />
+          <div class="leading-tight">
+            <div class="text-base font-extrabold text-white">Universitas Mahasaraswati</div>
+            <div class="text-[10px] uppercase tracking-widest text-gold font-semibold">Learning Center</div>
+          </div>
+        </div>
+        <p class="mt-3 text-white/60">Platform belajar & sertifikasi untuk profesional Indonesia.</p>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-3 text-gold">Kategori</h4>
+        <ul class="space-y-2 text-white/70">
+          <li><a href="short-course.html" class="hover:text-gold">Short Course</a></li>
+          <li><a href="microteaching.html" class="hover:text-gold">Microteaching</a></li>
+          <li><a href="bnsp.html" class="hover:text-gold">Sertifikasi BNSP</a></li>
+          <li><a href="toefl.html" class="hover:text-gold">TOEFL ITP</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-3 text-gold">Perusahaan</h4>
+        <ul class="space-y-2 text-white/70">
+          <li><a href="#" class="hover:text-gold">Tentang</a></li>
+          <li><a href="#" class="hover:text-gold">Kontak</a></li>
+          <li><a href="#" class="hover:text-gold">Karier</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-3 text-gold">Bantuan</h4>
+        <ul class="space-y-2 text-white/70">
+          <li><a href="#" class="hover:text-gold">FAQ</a></li>
+          <li><a href="#" class="hover:text-gold">Syarat & Ketentuan</a></li>
+          <li><a href="#" class="hover:text-gold">Privasi</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/10 text-center text-xs text-white/50 py-4">
+      © 2025 Universitas Mahasaraswati. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>initToeflPage();</script>
+</body>
+</html>

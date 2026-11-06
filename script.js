@@ -6,6 +6,7 @@ const categories = [
   { id:"short-course", title:"Short Course",      desc:"Kelas singkat & praktis untuk upgrade skill cepat.",     icon:"📘", color:"bg-brand-light text-brand" },
   { id:"microteaching",title:"Microteaching",     desc:"Latih kemampuan mengajar dengan sesi terstruktur.",      icon:"🎓", color:"bg-gold-light text-gold-dark" },
   { id:"bnsp",         title:"Sertifikasi BNSP",  desc:"Dapatkan sertifikasi resmi yang diakui industri.",       icon:"🏅", color:"bg-brand-light text-brand" },
+  { id:"toefl",        title:"TOEFL ITP",         desc:"Tes resmi ETS/IIEF untuk beasiswa, kerja, dan studi.",    icon:"🌐", color:"bg-gold-light text-gold-dark", href:"toefl.html" },
 ];
 
 const courses = [
@@ -101,7 +102,7 @@ function initHomePage() {
 
   // --- Categories ---
   categoryGrid.innerHTML = categories.map(c => `
-    <a href="${c.id}.html" class="category-card border border-slate-200 rounded-2xl p-6 bg-white block">
+    <a href="${c.href}" class="category-card border border-slate-200 rounded-2xl p-6 bg-white block">
       <div class="category-icon w-12 h-12 flex items-center justify-center rounded-xl text-2xl ${c.color} transition-colors">${c.icon}</div>
       <h3 class="mt-4 font-bold text-lg">${c.title}</h3>
       <p class="mt-1 text-sm text-ink-muted">${c.desc}</p>
@@ -243,7 +244,7 @@ function initCategoryPage(slug) {
           </div>
           <div class="mt-auto pt-4 flex items-center justify-between border-t border-slate-100">
             <span class="font-bold text-brand">${formatPrice(c.price)}</span>
-            <a href="course-detail.html" class="text-sm font-semibold text-brand hover:text-gold-dark transition">Detail →</a>
+            <button class="text-sm font-semibold text-brand hover:text-gold-dark transition">Detail →</button>
           </div>
         </div>
       </article>
@@ -520,6 +521,67 @@ function initLoginPage() {
       // window.location.href = "index.html"; // uncomment when ready
     }, 1500);
   });
+}
+
+/* ============================================================
+   TOEFL PAGE
+   ============================================================ */
+
+const toeflSlots = [
+  { gel: 1, date: "25 Januari 2026", day: "Sabtu", quota: 40, filled: 40, status: "full" },
+  { gel: 2, date: "22 Februari 2026", day: "Sabtu", quota: 40, filled: 38, status: "almost" },
+  { gel: 3, date: "29 Maret 2026", day: "Sabtu", quota: 40, filled: 12, status: "open" },
+];
+
+function initToeflPage() {
+  const grid = document.getElementById("slotGrid");
+  if (!grid) return;
+
+  const statusMap = {
+    full:   { label: "Kuota Penuh",   cls: "bg-red-50 text-red-700 border-red-200" },
+    almost: { label: "Hampir Penuh",  cls: "bg-gold-light text-gold-dark border-gold/40" },
+    open:   { label: "Tersedia",      cls: "bg-brand-light text-brand border-brand/30" },
+  };
+
+  grid.innerHTML = toeflSlots.map(s => {
+    const pct = Math.round((s.filled / s.quota) * 100);
+    const remaining = s.quota - s.filled;
+    const meta = statusMap[s.status];
+    const isFull = s.status === "full";
+
+    return `
+      <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden">
+        <div class="bg-brand text-white px-5 py-3 flex items-center justify-between">
+          <div class="font-bold">Gelombang ${s.gel}</div>
+          <span class="text-[10px] font-bold uppercase tracking-widest ${meta.cls.replace('bg-','bg-white/').replace('text-','text-')} bg-white/15 text-white border-0 px-2 py-0.5 rounded-full">${meta.label}</span>
+        </div>
+        <div class="p-5">
+          <div class="flex items-center gap-2 text-sm text-ink-muted">
+            <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+            ${s.day}, ${s.date}
+          </div>
+
+          <div class="mt-4">
+            <div class="flex items-center justify-between text-xs mb-1.5">
+              <span class="text-ink-muted">Kuota terisi</span>
+              <span class="font-bold text-ink">${s.filled} / ${s.quota}</span>
+            </div>
+            <div class="h-2 bg-slate-200 rounded-full overflow-hidden">
+              <div class="h-full ${isFull ? 'bg-red-500' : pct >= 90 ? 'bg-gold' : 'bg-brand'} rounded-full transition-all" style="width:${pct}%"></div>
+            </div>
+            <div class="mt-2 text-xs text-ink-muted">
+              ${isFull ? 'Kuota gelombang ini sudah penuh.' : `Sisa ${remaining} slot — segera daftar.`}
+            </div>
+          </div>
+
+          ${isFull
+            ? `<button disabled class="mt-5 w-full bg-slate-100 text-slate-400 font-bold py-2.5 rounded-lg cursor-not-allowed text-sm">Kuota Penuh</button>`
+            : `<a href="https://bit.ly/LayananTOEFLITP" target="_blank" rel="noopener" class="mt-5 block text-center w-full bg-brand text-white font-bold py-2.5 rounded-lg hover:bg-brand-dark transition text-sm">Daftar Gelombang ${s.gel}</a>`
+          }
+        </div>
+      </div>
+    `;
+  }).join("");
 }
 
 /* ============================================================
